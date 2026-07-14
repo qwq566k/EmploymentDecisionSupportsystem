@@ -1,0 +1,9 @@
+
+max_page = 20 # 无cookies时最大页数
+#base_url = "http://doupoa.site:12454" # 后端地址
+base_url = "http://127.0.0.1:12453"
+headless = false # 是否无头模式 例：为False时会有浏览器界面
+channel = "msedge" # 浏览器类型 可选：chrome, msedge, chrome-beta, msedge-beta, msedge-dev
+device_id = "" # 设备id，为空时自动生成
+
+        

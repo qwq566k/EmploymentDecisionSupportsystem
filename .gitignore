@@ -1,0 +1,77 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# IDE / tools
+.vscode/
+.idea/
+.VSCodeCounter/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs & runtime
+*.log
+cookies.json
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# ML checkpoints & weights (multi-GB, keep locally)
+**/results/
+**/checkpoint-*/
+*.safetensors
+*.bin
+optimizer.pt
+pytorch_model.bin
+
+# Large datasets & exports (keep locally, regenerate via scripts)
+*.csv
+*.parquet
+*.xlsx
+*.xls
+*.pptx
+*.zip
+*.jsonl
+
+# Allow small reference data used by code
+!数据分析/data/stopwords.txt
+!职业技能提取打分/技能提取/skills.json
+!职业技能提取打分/技能提取/skills.txt
+!职业技能提取打分/技能提取/THUOCL_it.txt
+!职业技能提取打分/技能提取/THUOCL_it.json
+!职业技能提取打分/技能提取/boss_skills.json
+!职业技能提取打分/技能提取/dataset_skills.json
+!职业技能提取打分/train_v2/data/skills.json
+!server/task_data/*.json
+!bosszhipin/bosszhipin.json
+!bosszhipin/资料/*.json
+!zhilian/资料/*
+
+# Packaged binaries & PyInstaller artifacts
+客户端打包/**/build/
+客户端打包/**/dist/
+客户端打包/**/*.exe
+客户端打包/**/*.pkg
+客户端打包/**/*.pyz
+客户端打包/**/*.toc
+客户端打包/**/*.html
+
+# Training datasets & tensorboard (regenerate locally)
+**/dataset.json
+**/dictbook.json
+**/logs/
+events.out.tfevents*
+
+# Soft copyright dump
+code.txt

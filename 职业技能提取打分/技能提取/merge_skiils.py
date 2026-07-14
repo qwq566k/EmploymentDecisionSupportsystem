@@ -1,0 +1,10 @@
+import json
+a = json.load(open("boss_skills.json","r",encoding="utf-8"))
+print(len(a))
+b = json.load(open("THUOCL_it.json","r",encoding="utf-8"))
+print(len(b))
+# c = json.load(open("dataset_skills.json","r",encoding="utf-8"))
+# print(len(c))
+z = list(set(a+b))
+print(len(z))
+json.dump(z,open("skills.json","w",encoding="utf-8"),ensure_ascii=False,)

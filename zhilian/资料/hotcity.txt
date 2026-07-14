@@ -1,0 +1,127 @@
+[
+                {
+                    "code": "010000",
+                    "value": "北京",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "020000",
+                    "value": "上海",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "030200",
+                    "value": "广州",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "040000",
+                    "value": "深圳",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "180200",
+                    "value": "武汉",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "200200",
+                    "value": "西安",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "080200",
+                    "value": "杭州",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "070200",
+                    "value": "南京",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "090200",
+                    "value": "成都",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "060000",
+                    "value": "重庆",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "030800",
+                    "value": "东莞",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "230300",
+                    "value": "大连",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "230200",
+                    "value": "沈阳",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "070300",
+                    "value": "苏州",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "250200",
+                    "value": "昆明",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "190200",
+                    "value": "长沙",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "150200",
+                    "value": "合肥",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "080300",
+                    "value": "宁波",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "170200",
+                    "value": "郑州",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "050000",
+                    "value": "天津",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "120300",
+                    "value": "青岛",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "120200",
+                    "value": "济南",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "220200",
+                    "value": "哈尔滨",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "240200",
+                    "value": "长春",
+                    "hasSubArea": true
+                },
+                {
+                    "code": "110200",
+                    "value": "福州",
+                    "hasSubArea": true
+                }
+            ]

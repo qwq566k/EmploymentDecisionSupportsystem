@@ -1,0 +1,1 @@
+Pyinstaller -F -i D:\低代码爬虫\客户端打包\Boss直聘\icon.ico D:\低代码爬虫\客户端打包\Boss直聘\client.py --name Boss直聘信息爬虫 --onefile --clean --noconfirm

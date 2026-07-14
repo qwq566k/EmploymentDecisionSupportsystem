@@ -1,0 +1,4 @@
+playwright
+loguru
+requests
+pydantic

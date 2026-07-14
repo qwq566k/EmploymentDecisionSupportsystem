@@ -1,0 +1,192 @@
+摄影/摄像师
+	设计软件
+		AE
+		Premiere
+		Nuendo
+	摄影类型
+		景物摄影
+		电商摄影
+		视频摄影
+		人像摄影
+		儿童摄影
+		珠宝摄影
+		旅拍摄影
+		平面摄影
+大数据类
+		Access
+		数据分析
+		数据挖掘
+		数据建模
+		DB2
+		ERwin
+		Hadoop
+		Spark
+		Hive
+		MySQL
+		OLAP
+		Oracle
+		R语言
+		SAS
+		SPSS
+		SQL
+		SQL Server
+		Sybase
+		Cloud
+		DB2/database
+开发编程类
+		Java
+		PHP
+		Lisp
+		Lua
+		.NET
+		ActiveX
+		ASP.NET
+		C#.NET
+		C/C++
+		Golang
+		ERP
+		SAP
+		HTML5
+		IOS
+		J2EE
+		JavaScript
+		PERL
+		Python
+		SEO
+		VB.Net
+		UI
+		Web前端
+		移动前端
+		Android
+		Clojure
+		Ruby
+		Matlab
+		XML/XSLT
+		Linux
+		Unix/Linux development
+		TensorFlow
+		Scala
+		Shell
+		Visual Basic
+		Perl
+		Transact
+		SSH三大框架
+		Obcective
+		Ruby
+		Pascal
+		Ibatis
+		Ajax
+		ASP
+		JPA
+		MFC
+		Qt
+多媒体设计类
+		3D Studio
+		3D Studio MAX
+		AUTOCAD
+		CATIA
+		Corel Draw
+		Director
+		Dreamweaver
+		Fireworks/Frontpage
+		Flash
+		FrontPage
+		GoLive
+		lllustrator
+		Lightwave
+		Maya
+		MS Publisher
+		PageMaker
+		Photoshop
+		Solid Works
+		Axure
+		Sketch
+		Indesign
+		Edius
+		Rhino
+		Athorware
+		Premiere
+工程制图类
+		Auto CAD
+		Solidworks
+		UG
+		3DMAX
+		PFD/PID
+		Pro/E
+		NavisWorks
+		Catia
+		Plant3D
+		LabVIEW
+		Chemoffice
+		origin
+		ASPEN
+		chemCAD
+		mastercam
+办公应用软件
+		OutLook Express
+		MS Excel
+		MS Word
+		MS OneNote
+		MS Powerpoint
+		MS Project
+		MS VISIO
+		Xmind
+语言类
+		普通话
+		粤语
+		英语
+		日语
+		西班牙语
+		葡萄牙语
+		德语
+		法语
+		俄语
+		阿拉伯语
+		意大利语
+		韩语/朝鲜语
+电子/硬件设计类
+		FPGA
+		VHDL
+		DSP
+		嵌入式系统
+		PLG
+		CPLD
+		ARM
+		单片机
+		MCGS触屏软件
+		仿真软件
+财务管理类
+		金蝶
+		Sun
+		用友
+影视/后期
+		AfterEffect
+		Edius
+		视频格式转换软件
+		DS
+		Final CutPro
+		Avid XpressPro
+		Avid
+		VCD/DVD光盘制作
+		DPS
+		Fire/Smoke系统
+		暗房技术
+		DVStorm
+兴趣/特长
+		阅读
+		写作
+		文字功底扎实
+		微信公众号运营
+		对数据敏感
+		擅于交际
+		运动
+		健身
+		唱歌
+		画画
+		跳舞
+		烹饪
+		摄影
+		舞台表演
+		主持
+		辩论赛
+		理财

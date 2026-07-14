@@ -1,0 +1,7 @@
+
+max_page = 10 # 无cookies时最大页数
+base_url = "http://127.0.0.1:12453" # 后端地址
+headless = false # 是否无头模式 例：为false时会有浏览器界面
+channel = "msedge" # 浏览器类型 可选：chrome, msedge, chrome-beta, msedge-beta, msedge-dev
+device_id = "" # 设备id，为空时自动生成
+brower_user_data_dir = "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\Edge\\User Data"

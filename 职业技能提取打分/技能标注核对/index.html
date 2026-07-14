@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>关键词标注工具</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      #app {
+        padding: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .text-content {
+        border: 1px solid #ddd;
+        padding: 20px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+      .highlight {
+        background: #ffeb3b;
+        animation: all 1s ease-in-out;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      td,
+      th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      input[type="number"] {
+        width: 60px;
+      }
+      button {
+        margin: 0 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h2>岗位关键词标注工具</h2>
+      <div>
+        <input
+          type="checkbox"
+          id="randomData"
+          name="randomData"
+          v-model="randomData"
+        /><lable for="random">随机数据？</lable>
+        <input
+          type="checkbox"
+          id="showCheckedData"
+          name="showCheckedData"
+          v-model="showCheckedData"
+        /><label for="showCheckedData">展示被检查过的数据？</label>
+        <button @click="submitData" style="color: #0061f3">提交数据</button>
+        <button @click="nextData">下一个数据</button>
+        <span style="margin-left: 20px"
+          >数据集检查状态：{{ checks }} / {{total}}</span
+        >
+      </div>
+      <!-- 文本显示区域 -->
+      <div
+        class="text-content"
+        @mouseup="handleTextSelection"
+        ref="textContainer"
+      >
+        <template v-for="(char, index) in text" :key="index">
+          <span :class="{ highlight: isHighlighted(index) }">{{ char }}</span>
+        </template>
+      </div>
+
+      <!-- 标注操作区 -->
+      <div>
+        <span style="margin-left: 20px">数据ID：{{id}}</span>
+        <span style="margin-left: 20px"
+          >被检查过: {{ checked ? '是' : '否'}}</span
+        >
+        <span style="margin-left: 20px" v-if="checked">检查时间：{{ checkedTime }}</span>
+
+        <span style="margin-left: 20px"
+          >当前标注数：{{ annotations.length }}</span
+        >
+      </div>
+      <!-- 标注列表 -->
+      <table class="text-content">
+        <thead>
+          <tr>
+            <th>关键词</th>
+            <th>起始位置</th>
+            <th>结束位置</th>
+            <th>重要度</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(anno, index) in annotations" :key="index">
+            <td><input v-model="anno.label" /></td>
+            <td><input type="number" v-model.number="anno.start" /></td>
+            <td><input type="number" v-model.number="anno.end" /></td>
+            <td>
+              <select v-model.number="anno.score">
+                <option value="1">1 - 一般</option>
+                <option value="2">2 - 重要</option>
+                <option value="3">3 - 关键</option>
+              </select>
+            </td>
+            <td>
+              <button @click="removeAnnotation(index)">删除</button>
+              <button @click="jumpToPosition(anno.start)">定位</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 导出数据预览 -->
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            text: "",
+            annotations: "",
+            randomData: false,
+            showCheckedData: false,
+            checked: 0,
+            total: 0,
+            id: "",
+            checks: false,
+          };
+        },
+        mounted() {
+          this.getData();
+        },
+        methods: {
+          getData() {
+            // 请求接口获取数据
+            fetch(
+              `/data?random=${this.randomData}&showCheckedData=${this.showCheckedData}`
+            )
+              .then((response) => response.json())
+              .then((data) => {
+                this.id = data.id;
+                this.checked = data.checked;
+                this.text = data.text;
+                this.annotations = JSON.parse(data.keywords);
+                console.log(this.annotations);
+              });
+            fetch("/status")
+              .then((response) => response.json())
+              .then((data) => {
+                this.checks = data.checked;
+                this.total = data.total;
+              });
+          },
+          submitData() {
+            // 提交数据到接口
+            fetch("/data", {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                id: this.id,
+                keywords: this.annotations,
+              }),
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  alert("提交失败");
+                  return;
+                }
+                alert("提交成功");
+                this.getData();
+              })
+              .catch((error) => {
+                alert("提交失败");
+              });
+          },
+          nextData() {
+            this.getData();
+          },
+          // 处理文本选择
+          handleTextSelection() {
+            const selection = window.getSelection();
+            if (!selection.toString().trim()) return;
+
+            const range = selection.getRangeAt(0);
+            const preSelectionRange = range.cloneRange();
+            preSelectionRange.selectNodeContents(this.$refs.textContainer);
+            preSelectionRange.setEnd(range.startContainer, range.startOffset);
+            const start = preSelectionRange.toString().length;
+            const end = start + selection.toString().length;
+
+            const label = prompt("请输入关键词标签：", selection.toString());
+            if (!label) return;
+
+            const score = prompt("请输入重要度 (1-3):", "3");
+            if (!score) return;
+
+            this.annotations.push({
+              start,
+              end,
+              label,
+              score: parseInt(score),
+              text: selection.toString().trim(),
+            });
+            //更新后按重要程度倒序
+            this.annotations.sort((a, b) => b.score - a.score);
+          },
+
+          // 判断字符是否被标注
+          isHighlighted(index) {
+            return this.annotations.some(
+              (anno) => index >= anno.start && index < anno.end
+            );
+          },
+
+          // 删除标注
+          removeAnnotation(index) {
+            this.annotations.splice(index, 1);
+          },
+
+          // 跳转到指定位置
+          jumpToPosition(pos) {
+            const spans = this.$refs.textContainer.querySelectorAll("span");
+            // 定位后高闪
+            if (spans[pos]) {
+              spans[pos].style.backgroundColor = "#ff3b3b";
+              setTimeout(() => {
+                spans[pos].style.backgroundColor = "";
+              }, 500);
+            }
+            if (spans[pos]) spans[pos].scrollIntoView({ behavior: "smooth" });
+          },
+
+          // 导出数据
+          exportData() {
+            this.exportJson = JSON.stringify(
+              {
+                text: this.text,
+                keywords: this.annotations,
+              },
+              null,
+              2
+            );
+            this.exportVisible = true;
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
